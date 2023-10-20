@@ -39,10 +39,13 @@ function desencriptar(stringDesencriptada){
     }
     return stringDesencriptada
 }
-function copiarlo() {
-    let copiarTexto = document.querySelector(".mensaje");
-    copiarTexto.select();
-    document.execCommand("copiarlo");
+
+  function copiarlo() {
+    var inputElement = document.getElementById("txtEncriptado");
+    inputElement.select();
+
+    document.execCommand('copy');
+    console.log("texto copiado");
   }
   
   document.querySelector(".mensaje").addEventListener("click",copiarlo );
