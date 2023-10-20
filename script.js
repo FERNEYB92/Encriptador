@@ -12,14 +12,13 @@ function btnEncriptar(){
     textArea.value="";
     mensaje.style.backgroundImage= "none";
 }
-
 function encriptar(stringEncriptada){
     let matrizCodigo=[["e","enter"],["i","imes"],["a","ai"],["o","ober"],["u","ufat"]];
     stringEncriptada = stringEncriptada.toLowerCase()
 
     for(let i =0 ; i <matrizCodigo.length; i++){
         if(stringEncriptada.includes(matrizCodigo[i][0])){
-            stringEncriptada=stringEncriptada.replaceAll(matrizCodigo[i][0],matrizCodigo[i],[1])
+            stringEncriptada=stringEncriptada.replaceAll(matrizCodigo[i][0],matrizCodigo[i][1])
         }
     }
     return stringEncriptada
@@ -35,8 +34,15 @@ function desencriptar(stringDesencriptada){
 
     for(let i =0 ; i <matrizCodigo.length; i++){
         if(stringDesencriptada.includes(matrizCodigo[i][1])){
-            stringDesencriptada=stringDesencriptada.replaceAll(matrizCodigo[i][1],matrizCodigo[i],[0])
+            stringDesencriptada=stringDesencriptada.replaceAll(matrizCodigo[i][1],matrizCodigo[i][0])
         }
     }
     return stringDesencriptada
 }
+function copiarlo() {
+    let copiarTexto = document.querySelector(".mensaje");
+    copiarTexto.select();
+    document.execCommand("copiarlo");
+  }
+  
+  document.querySelector(".mensaje").addEventListener("click",copiarlo );
